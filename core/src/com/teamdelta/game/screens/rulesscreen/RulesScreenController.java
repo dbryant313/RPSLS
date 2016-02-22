@@ -13,12 +13,28 @@ public class RulesScreenController extends InputAdapter {
     Main gameInstance;
     Vector3 input;
 
+    private static boolean hasPlayedSound = false;
+
     RulesScreenController(RulesScreen rulesScreen, Main gameInstance) {
         this.rulesScreen  = rulesScreen;
         this.gameInstance = gameInstance;
         this.input = new Vector3();
 
         Gdx.input.setInputProcessor(this);
+
+        if(!hasPlayedSound) {
+            hasPlayedSound = true;
+            rulesScreen.explanation.play();
+        }
+    }
+
+    private void stopSound() {
+        rulesScreen.explanation.stop();
+        rulesScreen.rockClick.stop();
+        rulesScreen.paperClick.stop();
+        rulesScreen.scissorsClick.stop();
+        rulesScreen.lizardClick.stop();
+        rulesScreen.spockClick.stop();
     }
 
     void showSelectedMessage() {
@@ -205,21 +221,27 @@ public class RulesScreenController extends InputAdapter {
 		gameInstance.camera.unproject(input);
 
 		if (rulesScreen.closeButton.colisionRect.contains(input.x, input.y)) {
+            stopSound();
             rulesScreen.closeButton.selected = true;
 			gameInstance.clickSound.play();
 		} else if (rulesScreen.rockButton.colisionRect.contains(input.x, input.y)) {
+            stopSound();
             rulesScreen.rockButton.selected = true;
 			rulesScreen.rockClick.play();
 		} else if (rulesScreen.paperButton.colisionRect.contains(input.x, input.y)) {
+            stopSound();
             rulesScreen.paperButton.selected = true;
 			rulesScreen.paperClick.play();
 		} else if (rulesScreen.scissorsButton.colisionRect.contains(input.x, input.y)) {
+            stopSound();
             rulesScreen.scissorsButton.selected = true;
 			rulesScreen.scissorsClick.play();
 		} else if (rulesScreen.lizardButton.colisionRect.contains(input.x, input.y)) {
+            stopSound();
             rulesScreen.lizardButton.selected = true;
 			rulesScreen.lizardClick.play();
 		} else if (rulesScreen.spockButton.colisionRect.contains(input.x, input.y)) {
+            stopSound();
             rulesScreen.spockButton.selected = true;
 			rulesScreen.spockClick.play();
 		}

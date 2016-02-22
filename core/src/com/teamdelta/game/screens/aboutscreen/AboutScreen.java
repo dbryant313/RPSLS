@@ -53,7 +53,6 @@ public class AboutScreen extends AbstractScreen {
 	@Override
 	public void show() {
 		aboutScreenController = new AboutScreenController(this, gameInstance);
-		mention.play(); //plays clip on entrance of about screen
 	}
 
 	/**

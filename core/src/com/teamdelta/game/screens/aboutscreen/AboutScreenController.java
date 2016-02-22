@@ -13,12 +13,19 @@ public class AboutScreenController extends InputAdapter {
     Main gameInstance;
     Vector3 input;
 
+	private static boolean hasPlayedSound = false;
+
     AboutScreenController(AboutScreen aboutScreen, Main gameInstance) {
         this.aboutScreen  = aboutScreen;
         this.gameInstance = gameInstance;
         this.input        = new Vector3();
 
         Gdx.input.setInputProcessor(this);
+
+		if(!hasPlayedSound) {
+			hasPlayedSound = true;
+			aboutScreen.mention.play(); //plays clip on entrance of about screen
+		}
     }
 
 	@Override
@@ -32,6 +39,7 @@ public class AboutScreenController extends InputAdapter {
 		gameInstance.camera.unproject(input);
 
 		if(aboutScreen.closeButton.colisionRect.contains(input.x, input.y)){
+			aboutScreen.mention.stop();
 			gameInstance.clickSound.play();
             aboutScreen.closeButton.selected = true;
 		}else{

@@ -70,7 +70,6 @@ public class RulesScreen extends AbstractScreen {
 
 	@Override
 	public void show() {
-		explanation.play();
 		rulesScreenController = new RulesScreenController(this, gameInstance);
 	}
 

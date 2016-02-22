@@ -14,6 +14,8 @@ public class StartScreenController extends InputAdapter {
     StartScreen startScreen;
     Vector3 input;
 
+    private static boolean hasPlayedMusic = false;
+
     public StartScreenController(StartScreen startScreen, Main gameInstance) {
         this.gameInstance = gameInstance;
         this.startScreen = startScreen;
@@ -22,9 +24,13 @@ public class StartScreenController extends InputAdapter {
 
         Gdx.input.setInputProcessor(this);
 
-        startScreen.startScreenMusic.setVolume(0.25f);
-        startScreen.startScreenMusic.play();
-        startScreen.startScreenMusic.setPosition(1.8f);
+        if(!hasPlayedMusic) {
+            hasPlayedMusic = true;
+
+            startScreen.startScreenMusic.setVolume(0.25f);
+            startScreen.startScreenMusic.play();
+            startScreen.startScreenMusic.setPosition(1.8f);
+        }
     }
 
     // Override InputAdapter TouchUp
