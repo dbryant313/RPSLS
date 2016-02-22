@@ -1,8 +1,7 @@
-package com.teamdelta.game;
+package com.teamdelta.game.models;
 
 import com.badlogic.gdx.math.MathUtils;
-import com.teamdelta.game.entities.EntityNames;
-import com.teamdelta.game.entities.RPSLSEntity;
+import com.teamdelta.game.Main;
 
 import java.util.LinkedHashMap;
 

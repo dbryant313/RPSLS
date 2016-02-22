@@ -11,8 +11,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.teamdelta.game.entities.EntityNames;
-import com.teamdelta.game.entities.RPSLSEntity;
+
+import com.teamdelta.game.screens.aboutscreen.AboutScreen;
+import com.teamdelta.game.screens.gamescreen.GameScreen;
+import com.teamdelta.game.screens.rulesscreen.RulesScreen;
+import com.teamdelta.game.screens.startscreen.StartScreen;
+
+import com.teamdelta.game.common.*;
+import com.teamdelta.game.models.*;
 
 /**
  * 
@@ -30,49 +36,50 @@ import com.teamdelta.game.entities.RPSLSEntity;
 
 public class Main extends Game {
 	//--
-	SpriteBatch batch;
-	OrthographicCamera camera;
+	public SpriteBatch batch;
+	public OrthographicCamera camera;
 	Viewport viewport;
-	AssetManager assetMgr;
+	public AssetManager assetMgr;
 
 	//--GameLogic
-	GameLogic gameLogic;
+	public GameLogic gameLogic;
+
+	//Screen Router
+	public Router router;
 
 	//--Screens
-	StartScreen startScreen;
-	GameScreen gameScreen;
-	AboutScreen aboutScreen;
-	RulesScreen rulesScreen;
-	AbstractScreen currentScreen;
-	AbstractScreen previousScreen;
-	
+	public StartScreen startScreen;
+	public GameScreen gameScreen;
+	public AboutScreen aboutScreen;
+	public RulesScreen rulesScreen;
+
 	//--Game assets
-	TextureAtlas gameAtlas;
-	Music clickSound;//changed Sound to Music - Warnock
+	public TextureAtlas gameAtlas;
+	public Music clickSound;//changed Sound to Music - Warnock
 	//Sounds played for winner of round - Ismael
-	Sound rockCrushesLizard;
-	Sound rockCrushesScissors;
-	Sound paperCoversRock;
-	Sound paperDisprovesSpock;
-	Sound scissorsDecapitateLizard;
-	Sound scissorsCutPaper;
-	Sound lizardEatsPaper;
-	Sound lizardPoisonsSpock;
-	Sound spockVaporizesRock;
-	Sound spockSmashesScissors;
-	Sound tie;
+	public Sound rockCrushesLizard;
+	public Sound rockCrushesScissors;
+	public Sound paperCoversRock;
+	public Sound paperDisprovesSpock;
+	public Sound scissorsDecapitateLizard;
+	public Sound scissorsCutPaper;
+	public Sound lizardEatsPaper;
+	public Sound lizardPoisonsSpock;
+	public Sound spockVaporizesRock;
+	public Sound spockSmashesScissors;
+	public Sound tie;
 
 	//--Entity Information - warnock
-	RPSLSEntity rockEntity;
-	RPSLSEntity paperEntity;
-	RPSLSEntity scissorsEntity;
-	RPSLSEntity lizardEntity;
-	RPSLSEntity spockEntity;
+	public RPSLSEntity rockEntity;
+	public RPSLSEntity paperEntity;
+	public RPSLSEntity scissorsEntity;
+	public RPSLSEntity lizardEntity;
+	public RPSLSEntity spockEntity;
 
 	float delta;
 	//
-	final int WIDTH = 800;
-	final int HEIGHT = 640;
+	public final int WIDTH = 800;
+	public final int HEIGHT = 640;
 	
 	@Override
 	public void create() {
@@ -112,26 +119,26 @@ public class Main extends Game {
 		gameScreen = new GameScreen(this);
 		aboutScreen = new AboutScreen(this);
 		rulesScreen = new RulesScreen(this);
-		previousScreen = startScreen;
-		currentScreen = startScreen;
-		currentScreen.show();
+		router = new Router();
+
+		router.changeScreen(startScreen);
 	}
 
 	@Override
 	public void dispose(){
-		currentScreen.dispose();
+		router.getScreen().dispose();
 		assetMgr.dispose();
 		batch.dispose();
 	}
 	
 	@Override
 	public void pause() {
-		currentScreen.pause();
+		router.getScreen().pause();
 	}
 
 	@Override
 	public void resume() {
-		currentScreen.resume();
+		router.getScreen().resume();
 		System.out.println("Main Resume");
 	}
 
@@ -144,10 +151,10 @@ public class Main extends Game {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-		currentScreen.render(delta);
+		router.getScreen().render(delta);
 		batch.end();
-		if(!currentScreen.paused){
-			currentScreen.update(delta);
+		if(!router.getScreen().paused){
+			router.getScreen().update(delta);
 		}
 		
 	}

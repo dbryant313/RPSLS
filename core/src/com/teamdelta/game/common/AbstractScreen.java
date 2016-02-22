@@ -1,10 +1,10 @@
-package com.teamdelta.game;
+package com.teamdelta.game.common;
 
-import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.teamdelta.game.Main;
 
 /**
  * 
@@ -16,12 +16,12 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
  * 
  */
 
-public abstract class AbstractScreen extends InputAdapter implements Screen {
-	Main gameInstance;
-	SpriteBatch batch;
-	OrthographicCamera camera;
-	TextureAtlas atlas;
-	boolean paused;
+public abstract class AbstractScreen implements Screen {
+	public Main gameInstance;
+	public SpriteBatch batch;
+	public OrthographicCamera camera;
+	public TextureAtlas atlas;
+	public boolean paused;
 	
 	public AbstractScreen(Main game) {
 		gameInstance = game;
@@ -30,9 +30,8 @@ public abstract class AbstractScreen extends InputAdapter implements Screen {
 		atlas = gameInstance.assetMgr.get("game.pack", TextureAtlas.class);
 	}
 
-	abstract void loadAssets();
-	abstract void disposeAssets();
+	public abstract void loadAssets();
+	public abstract void disposeAssets();
 
-	abstract void update(float timeSinceLastFrame);
-
+	public abstract void update(float timeSinceLastFrame);
 }
