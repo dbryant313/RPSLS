@@ -1,4 +1,4 @@
-package com.teamdelta.game;
+package com.teamdelta.game.models;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -10,27 +10,26 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
  * @version 1.0.0.0
  * @since 2/9/16
  * 
- * The User class controls the user game play.
+ * The CPU class controls CPU game play.
  * 
  */
 
-public class User extends AbstractEntity {
+public class CPU extends AbstractEntity {
 	
-	public User(TextureAtlas atlas){
-		skin = new Sprite(atlas.findRegion("green"));
+	public CPU(TextureAtlas atlas){
+		skin = new Sprite(atlas.findRegion("red"));
 		skin.setSize(100, 200);
-		skin.setPosition(50, 600);
-		turnToPlay = true;
+		skin.setPosition(650, 600);
 	}
+
 	@Override
 	void render(float timeSinceLastFrame, SpriteBatch batch) {
-		skin.draw(batch);
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	void update(float timeSinceLastFrame) {
-		
 		
 	}
 

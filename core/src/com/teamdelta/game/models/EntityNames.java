@@ -1,4 +1,4 @@
-package com.teamdelta.game.entities;
+package com.teamdelta.game.models;
 
 /**
  * @author William Warnock

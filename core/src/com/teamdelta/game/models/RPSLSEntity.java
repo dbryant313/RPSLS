@@ -1,9 +1,8 @@
-package com.teamdelta.game.entities;
+package com.teamdelta.game.models;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.teamdelta.game.Button;
+import com.teamdelta.game.common.Button;
 
 import java.util.ArrayList;
 

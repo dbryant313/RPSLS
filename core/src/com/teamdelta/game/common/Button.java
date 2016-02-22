@@ -1,4 +1,4 @@
-package com.teamdelta.game;
+package com.teamdelta.game.common;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -17,8 +17,8 @@ import com.badlogic.gdx.math.Rectangle;
 public class Button {
 	TextureRegion textureRegion;
 	TextureRegion textureRegionSelected;
-	boolean selected;
-	Rectangle colisionRect;
+	public boolean selected;
+	public Rectangle colisionRect;
 	
 	public Button(){
 		textureRegion = new TextureRegion();
@@ -31,7 +31,7 @@ public class Button {
 		colisionRect = colRect;
 	}
 	
-	void draw(SpriteBatch batch){
+	public void draw(SpriteBatch batch){
 		if(!selected){
 			batch.draw(textureRegion, colisionRect.x, colisionRect.y, colisionRect.width, colisionRect.height);
 		}else{

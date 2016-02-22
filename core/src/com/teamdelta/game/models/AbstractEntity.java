@@ -1,9 +1,8 @@
-package com.teamdelta.game;
+package com.teamdelta.game.models;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.teamdelta.game.entities.RPSLSEntity;
 
 /**
  * 
@@ -16,14 +15,14 @@ import com.teamdelta.game.entities.RPSLSEntity;
  */
 
 public abstract class AbstractEntity {
-	String name;
-	Sprite skin;
-	boolean turnToPlay;
-	int winScore;
-	int loseScore;
-	int tieScore; //Edited by Jeff Kunert
-	RPSLSEntity choice;//removed enum and made choice RPSLSEntity
-	TextureAtlas atlas;
+	public String name;
+	public Sprite skin;
+	public boolean turnToPlay;
+	public int winScore;
+	public int loseScore;
+	public int tieScore; //Edited by Jeff Kunert
+	public RPSLSEntity choice;//removed enum and made choice RPSLSEntity
+	public TextureAtlas atlas;
 	
 	abstract void render(float timeSinceLastFrame, SpriteBatch bath);
 	abstract void update(float timeSinceLastFrame);
