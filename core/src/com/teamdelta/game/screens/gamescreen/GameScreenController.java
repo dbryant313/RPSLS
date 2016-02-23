@@ -86,7 +86,8 @@ public class GameScreenController extends InputAdapter {
 
         if(playerTookTurn){
             gameScreen.font.draw(gameScreen.batch, "You chose: " + player.choice.getName(), 180, 500); //-- Adjusted Positioning - Ismael
-        } else if(cpuTookTurn){
+        } 
+        if(cpuTookTurn){
             gameScreen.font.draw(gameScreen.batch, "CPU chose: " + cpu.choice.getName(), 470, 500); //-- Adjusted Positioning - Ismael
         }
 
