@@ -99,7 +99,7 @@ public class AboutScreen extends AbstractScreen {
 		smallFont.draw(batch, "UI design and QA", 150, 320-20);
 		smallFont.draw(batch, "Jacob Herritt", 150, 300-20);
 		smallFont.draw(batch, "William Warnock", 150, 280-20);
-		smallFont.draw(batch, "Version 2.0.0.0",  150, 240-20);
+		smallFont.draw(batch, "Version 3.0.0.0",  150, 240-20);
 		
 		smallFont.draw(batch, "Rock Paper Scissors Lizard Spock is a game", 400, 500-20);
 		smallFont.draw(batch, "created by Sam Kass and Karen Bryla in order", 400, 480-20);
