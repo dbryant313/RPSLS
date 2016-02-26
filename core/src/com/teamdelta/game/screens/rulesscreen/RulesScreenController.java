@@ -217,6 +217,13 @@ public class RulesScreenController extends InputAdapter {
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		input.x = screenX;
 		input.y = screenY;
+		
+		rulesScreen.closeButton.selected    = false;
+		rulesScreen.rockButton.selected     = false;
+		rulesScreen.paperButton.selected    = false;
+		rulesScreen.scissorsButton.selected = false;
+		rulesScreen.lizardButton.selected   = false;
+		rulesScreen.spockButton.selected    = false;
 
 		gameInstance.camera.unproject(input);
 
@@ -256,12 +263,7 @@ public class RulesScreenController extends InputAdapter {
 
 		gameInstance.camera.unproject(input);
 
-		rulesScreen.closeButton.selected    = false;
-		rulesScreen.rockButton.selected     = false;
-		rulesScreen.paperButton.selected    = false;
-		rulesScreen.scissorsButton.selected = false;
-		rulesScreen.lizardButton.selected   = false;
-		rulesScreen.spockButton.selected    = false;
+
 
 		if (rulesScreen.closeButton.colisionRect.contains(input.x, input.y)) {
             gameInstance.router.back();
