@@ -9,7 +9,7 @@ import com.teamdelta.game.models.EntityNames;
 import com.teamdelta.game.models.User;
 
 /**
- * @author William Warnock
+ * @author Ismael Poteau
  */
 public class GameScreenController extends InputAdapter {
     GameScreen gameScreen;
