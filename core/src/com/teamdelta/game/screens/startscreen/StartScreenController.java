@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.teamdelta.game.Main;
 
 /**
- * @author William Warnock
+ * @author Jake Herritt
  */
 public class StartScreenController extends InputAdapter {
     Main gameInstance;
