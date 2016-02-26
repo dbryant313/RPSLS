@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.teamdelta.game.Main;
 
 /**
- * @author William Warnock
+ * @author Jeff Kunert
  */
 public class RulesScreenController extends InputAdapter {
     RulesScreen rulesScreen;
