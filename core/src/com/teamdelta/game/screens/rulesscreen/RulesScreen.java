@@ -102,8 +102,8 @@ public class RulesScreen extends AbstractScreen {
 	}
 	
 	void renderMessage(){
-		bigFont.draw(batch, "----RULES----", 300, 620);
-		bigFont.draw(batch, "Click and hold a character to check how it wins", 200, 580);
+		bigFont.draw(batch, "RULES", 335, 620);
+		bigFont.draw(batch, "Click a character to check how it wins", 200, 580);
 
 		rulesScreenController.showSelectedMessage();
 	}
