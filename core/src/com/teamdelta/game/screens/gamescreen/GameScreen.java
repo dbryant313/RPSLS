@@ -32,6 +32,7 @@ import com.teamdelta.game.Main;
  * 2/17/16 - Added Background - Warnock
  * 2/17/16 - Repositioned score for CPU - Warnock
  * 2/18/16 - added delay for CPU turn - Ismael
+ * 2/27/18 - removed CPU scores - Ismael
  */
 public class GameScreen extends AbstractScreen {
 	Button rockButton;
@@ -128,10 +129,10 @@ public class GameScreen extends AbstractScreen {
 		font.draw(batch, "Wins:  " + gameScreenController.player.winScore, 50, 560);
 		font.draw(batch, "Losses:  " + gameScreenController.player.loseScore, 50, 540);
 		font.draw(batch, "Ties:  " + gameScreenController.player.tieScore, 50, 520); //Jeff Added Tie Score for cpu
-
-		font.draw(batch, "Wins:  " + gameScreenController.cpu.winScore, 650, 560);
-		font.draw(batch, "Losses:  " + gameScreenController.cpu.loseScore, 650, 540);
-		font.draw(batch, "Ties:  " + gameScreenController.cpu.tieScore, 650, 520); //Jeff Added Tie Score for cpu
+//		Scores for CPU removed because redundant
+//		font.draw(batch, "Wins:  " + gameScreenController.cpu.winScore, 650, 560);
+//		font.draw(batch, "Losses:  " + gameScreenController.cpu.loseScore, 650, 540);
+//		font.draw(batch, "Ties:  " + gameScreenController.cpu.tieScore, 650, 520); //Jeff Added Tie Score for cpu
 	}
 
 	void renderFPS() {

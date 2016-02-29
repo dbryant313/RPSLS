@@ -27,7 +27,7 @@ public class StartScreenController extends InputAdapter {
         if(!hasPlayedMusic) {
             hasPlayedMusic = true;
 
-            startScreen.startScreenMusic.setVolume(0.25f);
+            startScreen.startScreenMusic.setVolume(0.5f);
             startScreen.startScreenMusic.play();
             startScreen.startScreenMusic.setPosition(1.8f);
         }
